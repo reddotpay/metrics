@@ -48,13 +48,17 @@ func New(appname, method, path, traceID, apiKey string) Metrics {
 }
 
 // SetAWSResources sets aws resource
-func (metrics Metrics) SetAWSResources(resources ...AWSResource) {
+func (metrics Metrics) SetAWSResources(resources ...string) {
 	for _, resource := range resources {
-		if _, ok := awsResources[string(resource)]; !ok {
-			panic("invalid AWS resource")
+		for i := range awsResources {
+			if awsResources[i] == resource {
+				fmt.Println(resource)
+				metrics.Value[resource] = ""
+				return
+			}
 		}
-		metrics.Value[string(resource)] = ""
 	}
+	panic("invalid AWS resource")
 }
 
 // SetDynamoDBReadUsage sets dynamodb read usage

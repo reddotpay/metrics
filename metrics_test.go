@@ -27,11 +27,11 @@ func TestMetrics_New(t *testing.T) {
 }
 
 func TestMetrics_SetAWSResources(t *testing.T) {
-	m.SetAWSResources(metrics.AWSResourceAPIGateway)
+	m.SetAWSResources("API Gateway")
 	assert := assert.New(t)
-	_, ok := m.Value[string(metrics.AWSResourceAPIGateway)]
+	_, ok := m.Value["API Gateway"]
 	assert.True(ok)
-	_, ok = m.Value[string(metrics.AWSResourceLambda)]
+	_, ok = m.Value["Lambda"]
 	assert.False(ok)
 }
 

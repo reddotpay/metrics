@@ -2,19 +2,10 @@
 
 echo "package metrics"
 
-echo "var awsResources = map[string]int{"
+echo "var awsResources = []string{"
 
 while IFS='' read -r line || [[ -n "$line" ]]; do
-    echo "\"$line\": 1," 
+    echo "\"$line\"," 
 done < "$1"
 
 echo "}"
-
-echo "// AWSResource defines aws resources"
-echo "type AWSResource string"
-
-while IFS='' read -r line || [[ -n "$line" ]]; do
-    s=$(echo $line | tr -d ' ' | tr -d '.' | tr -d '-')
-    echo "// AWSResource$s defines $line resource"
-    echo "const AWSResource$s AWSResource = \"$line\"" 
-done < "$1"
