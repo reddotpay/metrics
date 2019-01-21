@@ -5,6 +5,7 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"time"
 
@@ -24,6 +25,10 @@ var (
 // Metrics defines metrics to send to firehose
 type Metrics struct {
 	start time.Time
+
+	dynamodbRead  int
+	dynamodbWrite int
+
 	Value map[string]string
 }
 
@@ -53,6 +58,18 @@ func (metrics Metrics) SetAWSResources(resources ...AWSResource) {
 	}
 }
 
+// SetDynamoDBReadUsage sets dynamodb read usage
+func (metrics *Metrics) SetDynamoDBReadUsage() {
+	metrics.dynamodbRead = metrics.dynamodbRead + 1
+	metrics.Value["dynamodbRead"] = strconv.Itoa(metrics.dynamodbRead)
+}
+
+// SetDynamoDBWriteUsage sets dynamodb write usage
+func (metrics *Metrics) SetDynamoDBWriteUsage() {
+	metrics.dynamodbWrite = metrics.dynamodbWrite + 1
+	metrics.Value["dynamodbWrite"] = strconv.Itoa(metrics.dynamodbWrite)
+}
+
 // NewClient creates a new firehose client with default config
 func NewClient() *firehose.Firehose {
 	return firehose.New(session.New(&aws.Config{}))
@@ -64,9 +81,9 @@ func NewClientWithConfig(config aws.Config) *firehose.Firehose {
 }
 
 // Send sends `Metrics` to firehose stream
-func (metrics Metrics) Send(ctx context.Context) error {
+func (metrics *Metrics) Send(ctx context.Context) error {
 	// Set duration in milliseconds
-	metrics.Value["duration"] = strconv.FormatInt(time.Since(metrics.start).Nanoseconds()/1000000, 10)
+	metrics.Value["duration"] = fmt.Sprintf("%.2f", float64(time.Since(metrics.start).Nanoseconds())/1000000)
 
 	b, _ := json.Marshal(metrics.Value)
 	_, err := Firehose.PutRecordWithContext(ctx, &firehose.PutRecordInput{
