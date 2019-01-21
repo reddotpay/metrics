@@ -53,12 +53,12 @@ func (metrics Metrics) SetAWSResources(resources ...AWSResource) {
 }
 
 // NewClient creates a new firehose client with default config
-func NewClient(streamName string) *firehose.Firehose {
+func NewClient() *firehose.Firehose {
 	return firehose.New(session.New(&aws.Config{}))
 }
 
 // NewClientWithConfig creates a new firehose client with given config
-func NewClientWithConfig(streamName string, config aws.Config) *firehose.Firehose {
+func NewClientWithConfig(config aws.Config) *firehose.Firehose {
 	return firehose.New(session.New(&config))
 }
 
