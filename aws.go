@@ -77,215 +77,215 @@ var awsResources = map[string]int{
 // AWSResource defines aws resources
 type AWSResource string
 
-// Alexa defines Alexa resource
-const Alexa AWSResource = "Alexa"
+// AWSResourceAlexa defines Alexa resource
+const AWSResourceAlexa AWSResource = "Alexa"
 
-// AmazonMQ defines Amazon MQ resource
-const AmazonMQ AWSResource = "Amazon MQ"
+// AWSResourceAmazonMQ defines Amazon MQ resource
+const AWSResourceAmazonMQ AWSResource = "Amazon MQ"
 
-// APIGateway defines API Gateway resource
-const APIGateway AWSResource = "API Gateway"
+// AWSResourceAPIGateway defines API Gateway resource
+const AWSResourceAPIGateway AWSResource = "API Gateway"
 
-// ApplicationAutoScaling defines Application Auto Scaling resource
-const ApplicationAutoScaling AWSResource = "Application Auto Scaling"
+// AWSResourceApplicationAutoScaling defines Application Auto Scaling resource
+const AWSResourceApplicationAutoScaling AWSResource = "Application Auto Scaling"
 
-// AppStream20 defines AppStream 2.0 resource
-const AppStream20 AWSResource = "AppStream 2.0"
+// AWSResourceAppStream20 defines AppStream 2.0 resource
+const AWSResourceAppStream20 AWSResource = "AppStream 2.0"
 
-// AppSync defines AppSync resource
-const AppSync AWSResource = "AppSync"
+// AWSResourceAppSync defines AppSync resource
+const AWSResourceAppSync AWSResource = "AppSync"
 
-// Athena defines Athena resource
-const Athena AWSResource = "Athena"
+// AWSResourceAthena defines Athena resource
+const AWSResourceAthena AWSResource = "Athena"
 
-// AutoScaling defines Auto Scaling resource
-const AutoScaling AWSResource = "Auto Scaling"
+// AWSResourceAutoScaling defines Auto Scaling resource
+const AWSResourceAutoScaling AWSResource = "Auto Scaling"
 
-// AWSBatch defines AWS Batch resource
-const AWSBatch AWSResource = "AWS Batch"
+// AWSResourceAWSBatch defines AWS Batch resource
+const AWSResourceAWSBatch AWSResource = "AWS Batch"
 
-// Budgets defines Budgets resource
-const Budgets AWSResource = "Budgets"
+// AWSResourceBudgets defines Budgets resource
+const AWSResourceBudgets AWSResource = "Budgets"
 
-// CertificateManager defines Certificate Manager resource
-const CertificateManager AWSResource = "Certificate Manager"
+// AWSResourceCertificateManager defines Certificate Manager resource
+const AWSResourceCertificateManager AWSResource = "Certificate Manager"
 
-// AWSCloud9 defines AWS Cloud9 resource
-const AWSCloud9 AWSResource = "AWS Cloud9"
+// AWSResourceAWSCloud9 defines AWS Cloud9 resource
+const AWSResourceAWSCloud9 AWSResource = "AWS Cloud9"
 
-// CloudFormation defines CloudFormation resource
-const CloudFormation AWSResource = "CloudFormation"
+// AWSResourceCloudFormation defines CloudFormation resource
+const AWSResourceCloudFormation AWSResource = "CloudFormation"
 
-// CloudFront defines CloudFront resource
-const CloudFront AWSResource = "CloudFront"
+// AWSResourceCloudFront defines CloudFront resource
+const AWSResourceCloudFront AWSResource = "CloudFront"
 
-// AWSCloudMap defines AWS Cloud Map resource
-const AWSCloudMap AWSResource = "AWS Cloud Map"
+// AWSResourceAWSCloudMap defines AWS Cloud Map resource
+const AWSResourceAWSCloudMap AWSResource = "AWS Cloud Map"
 
-// CloudTrail defines CloudTrail resource
-const CloudTrail AWSResource = "CloudTrail"
+// AWSResourceCloudTrail defines CloudTrail resource
+const AWSResourceCloudTrail AWSResource = "CloudTrail"
 
-// CloudWatch defines CloudWatch resource
-const CloudWatch AWSResource = "CloudWatch"
+// AWSResourceCloudWatch defines CloudWatch resource
+const AWSResourceCloudWatch AWSResource = "CloudWatch"
 
-// CodeBuild defines CodeBuild resource
-const CodeBuild AWSResource = "CodeBuild"
+// AWSResourceCodeBuild defines CodeBuild resource
+const AWSResourceCodeBuild AWSResource = "CodeBuild"
 
-// CodeCommit defines CodeCommit resource
-const CodeCommit AWSResource = "CodeCommit"
+// AWSResourceCodeCommit defines CodeCommit resource
+const AWSResourceCodeCommit AWSResource = "CodeCommit"
 
-// CodeDeploy defines CodeDeploy resource
-const CodeDeploy AWSResource = "CodeDeploy"
+// AWSResourceCodeDeploy defines CodeDeploy resource
+const AWSResourceCodeDeploy AWSResource = "CodeDeploy"
 
-// CodePipeline defines CodePipeline resource
-const CodePipeline AWSResource = "CodePipeline"
+// AWSResourceCodePipeline defines CodePipeline resource
+const AWSResourceCodePipeline AWSResource = "CodePipeline"
 
-// AmazonCognito defines Amazon Cognito resource
-const AmazonCognito AWSResource = "Amazon Cognito"
+// AWSResourceAmazonCognito defines Amazon Cognito resource
+const AWSResourceAmazonCognito AWSResource = "Amazon Cognito"
 
-// AWSConfig defines AWS Config resource
-const AWSConfig AWSResource = "AWS Config"
+// AWSResourceAWSConfig defines AWS Config resource
+const AWSResourceAWSConfig AWSResource = "AWS Config"
 
-// DataPipeline defines Data Pipeline resource
-const DataPipeline AWSResource = "Data Pipeline"
+// AWSResourceDataPipeline defines Data Pipeline resource
+const AWSResourceDataPipeline AWSResource = "Data Pipeline"
 
-// DAX defines DAX resource
-const DAX AWSResource = "DAX"
+// AWSResourceDAX defines DAX resource
+const AWSResourceDAX AWSResource = "DAX"
 
-// DirectoryService defines Directory Service resource
-const DirectoryService AWSResource = "Directory Service"
+// AWSResourceDirectoryService defines Directory Service resource
+const AWSResourceDirectoryService AWSResource = "Directory Service"
 
-// DataLifecycleManager defines Data Lifecycle Manager resource
-const DataLifecycleManager AWSResource = "Data Lifecycle Manager"
+// AWSResourceDataLifecycleManager defines Data Lifecycle Manager resource
+const AWSResourceDataLifecycleManager AWSResource = "Data Lifecycle Manager"
 
-// DMS defines DMS resource
-const DMS AWSResource = "DMS"
+// AWSResourceDMS defines DMS resource
+const AWSResourceDMS AWSResource = "DMS"
 
-// DocumentDB defines DocumentDB resource
-const DocumentDB AWSResource = "DocumentDB"
+// AWSResourceDocumentDB defines DocumentDB resource
+const AWSResourceDocumentDB AWSResource = "DocumentDB"
 
-// DynamoDB defines DynamoDB resource
-const DynamoDB AWSResource = "DynamoDB"
+// AWSResourceDynamoDB defines DynamoDB resource
+const AWSResourceDynamoDB AWSResource = "DynamoDB"
 
-// EC2 defines EC2 resource
-const EC2 AWSResource = "EC2"
+// AWSResourceEC2 defines EC2 resource
+const AWSResourceEC2 AWSResource = "EC2"
 
-// ECR defines ECR resource
-const ECR AWSResource = "ECR"
+// AWSResourceECR defines ECR resource
+const AWSResourceECR AWSResource = "ECR"
 
-// ECS defines ECS resource
-const ECS AWSResource = "ECS"
+// AWSResourceECS defines ECS resource
+const AWSResourceECS AWSResource = "ECS"
 
-// EFS defines EFS resource
-const EFS AWSResource = "EFS"
+// AWSResourceEFS defines EFS resource
+const AWSResourceEFS AWSResource = "EFS"
 
-// EKS defines EKS resource
-const EKS AWSResource = "EKS"
+// AWSResourceEKS defines EKS resource
+const AWSResourceEKS AWSResource = "EKS"
 
-// ElastiCache defines ElastiCache resource
-const ElastiCache AWSResource = "ElastiCache"
+// AWSResourceElastiCache defines ElastiCache resource
+const AWSResourceElastiCache AWSResource = "ElastiCache"
 
-// Elasticsearch defines Elasticsearch resource
-const Elasticsearch AWSResource = "Elasticsearch"
+// AWSResourceElasticsearch defines Elasticsearch resource
+const AWSResourceElasticsearch AWSResource = "Elasticsearch"
 
-// ElasticBeanstalk defines Elastic Beanstalk resource
-const ElasticBeanstalk AWSResource = "Elastic Beanstalk"
+// AWSResourceElasticBeanstalk defines Elastic Beanstalk resource
+const AWSResourceElasticBeanstalk AWSResource = "Elastic Beanstalk"
 
-// ElasticLoadBalancing defines Elastic Load Balancing resource
-const ElasticLoadBalancing AWSResource = "Elastic Load Balancing"
+// AWSResourceElasticLoadBalancing defines Elastic Load Balancing resource
+const AWSResourceElasticLoadBalancing AWSResource = "Elastic Load Balancing"
 
-// ElasticLoadBalancingV2 defines Elastic Load Balancing V2 resource
-const ElasticLoadBalancingV2 AWSResource = "Elastic Load Balancing V2"
+// AWSResourceElasticLoadBalancingV2 defines Elastic Load Balancing V2 resource
+const AWSResourceElasticLoadBalancingV2 AWSResource = "Elastic Load Balancing V2"
 
-// EMR defines EMR resource
-const EMR AWSResource = "EMR"
+// AWSResourceEMR defines EMR resource
+const AWSResourceEMR AWSResource = "EMR"
 
-// AmazonGameLift defines Amazon GameLift resource
-const AmazonGameLift AWSResource = "Amazon GameLift"
+// AWSResourceAmazonGameLift defines Amazon GameLift resource
+const AWSResourceAmazonGameLift AWSResource = "Amazon GameLift"
 
-// Glue defines Glue resource
-const Glue AWSResource = "Glue"
+// AWSResourceGlue defines Glue resource
+const AWSResourceGlue AWSResource = "Glue"
 
-// GuardDuty defines GuardDuty resource
-const GuardDuty AWSResource = "GuardDuty"
+// AWSResourceGuardDuty defines GuardDuty resource
+const AWSResourceGuardDuty AWSResource = "GuardDuty"
 
-// IAM defines IAM resource
-const IAM AWSResource = "IAM"
+// AWSResourceIAM defines IAM resource
+const AWSResourceIAM AWSResource = "IAM"
 
-// AmazonInspector defines Amazon Inspector resource
-const AmazonInspector AWSResource = "Amazon Inspector"
+// AWSResourceAmazonInspector defines Amazon Inspector resource
+const AWSResourceAmazonInspector AWSResource = "Amazon Inspector"
 
-// AWSIoT defines AWS IoT resource
-const AWSIoT AWSResource = "AWS IoT"
+// AWSResourceAWSIoT defines AWS IoT resource
+const AWSResourceAWSIoT AWSResource = "AWS IoT"
 
-// AWSIoT1Click defines AWS IoT 1-Click resource
-const AWSIoT1Click AWSResource = "AWS IoT 1-Click"
+// AWSResourceAWSIoT1Click defines AWS IoT 1-Click resource
+const AWSResourceAWSIoT1Click AWSResource = "AWS IoT 1-Click"
 
-// AWSIoTAnalytics defines AWS IoT Analytics resource
-const AWSIoTAnalytics AWSResource = "AWS IoT Analytics"
+// AWSResourceAWSIoTAnalytics defines AWS IoT Analytics resource
+const AWSResourceAWSIoTAnalytics AWSResource = "AWS IoT Analytics"
 
-// Kinesis defines Kinesis resource
-const Kinesis AWSResource = "Kinesis"
+// AWSResourceKinesis defines Kinesis resource
+const AWSResourceKinesis AWSResource = "Kinesis"
 
-// KMS defines KMS resource
-const KMS AWSResource = "KMS"
+// AWSResourceKMS defines KMS resource
+const AWSResourceKMS AWSResource = "KMS"
 
-// Lambda defines Lambda resource
-const Lambda AWSResource = "Lambda"
+// AWSResourceLambda defines Lambda resource
+const AWSResourceLambda AWSResource = "Lambda"
 
-// Neptune defines Neptune resource
-const Neptune AWSResource = "Neptune"
+// AWSResourceNeptune defines Neptune resource
+const AWSResourceNeptune AWSResource = "Neptune"
 
-// OpsWorks defines OpsWorks resource
-const OpsWorks AWSResource = "OpsWorks"
+// AWSResourceOpsWorks defines OpsWorks resource
+const AWSResourceOpsWorks AWSResource = "OpsWorks"
 
-// RDS defines RDS resource
-const RDS AWSResource = "RDS"
+// AWSResourceRDS defines RDS resource
+const AWSResourceRDS AWSResource = "RDS"
 
-// AmazonRedshift defines Amazon Redshift resource
-const AmazonRedshift AWSResource = "Amazon Redshift"
+// AWSResourceAmazonRedshift defines Amazon Redshift resource
+const AWSResourceAmazonRedshift AWSResource = "Amazon Redshift"
 
-// Route53 defines Route 53 resource
-const Route53 AWSResource = "Route 53"
+// AWSResourceRoute53 defines Route 53 resource
+const AWSResourceRoute53 AWSResource = "Route 53"
 
-// S3 defines S3 resource
-const S3 AWSResource = "S3"
+// AWSResourceS3 defines S3 resource
+const AWSResourceS3 AWSResource = "S3"
 
-// SageMaker defines SageMaker resource
-const SageMaker AWSResource = "SageMaker"
+// AWSResourceSageMaker defines SageMaker resource
+const AWSResourceSageMaker AWSResource = "SageMaker"
 
-// SecretsManager defines Secrets Manager resource
-const SecretsManager AWSResource = "Secrets Manager"
+// AWSResourceSecretsManager defines Secrets Manager resource
+const AWSResourceSecretsManager AWSResource = "Secrets Manager"
 
-// ServiceCatalog defines Service Catalog resource
-const ServiceCatalog AWSResource = "Service Catalog"
+// AWSResourceServiceCatalog defines Service Catalog resource
+const AWSResourceServiceCatalog AWSResource = "Service Catalog"
 
-// SES defines SES resource
-const SES AWSResource = "SES"
+// AWSResourceSES defines SES resource
+const AWSResourceSES AWSResource = "SES"
 
-// SimpleDB defines SimpleDB resource
-const SimpleDB AWSResource = "SimpleDB"
+// AWSResourceSimpleDB defines SimpleDB resource
+const AWSResourceSimpleDB AWSResource = "SimpleDB"
 
-// SNS defines SNS resource
-const SNS AWSResource = "SNS"
+// AWSResourceSNS defines SNS resource
+const AWSResourceSNS AWSResource = "SNS"
 
-// SQS defines SQS resource
-const SQS AWSResource = "SQS"
+// AWSResourceSQS defines SQS resource
+const AWSResourceSQS AWSResource = "SQS"
 
-// StepFunctions defines Step Functions resource
-const StepFunctions AWSResource = "Step Functions"
+// AWSResourceStepFunctions defines Step Functions resource
+const AWSResourceStepFunctions AWSResource = "Step Functions"
 
-// SystemsManager defines Systems Manager resource
-const SystemsManager AWSResource = "Systems Manager"
+// AWSResourceSystemsManager defines Systems Manager resource
+const AWSResourceSystemsManager AWSResource = "Systems Manager"
 
-// WAF defines WAF resource
-const WAF AWSResource = "WAF"
+// AWSResourceWAF defines WAF resource
+const AWSResourceWAF AWSResource = "WAF"
 
-// WAFRegional defines WAF Regional resource
-const WAFRegional AWSResource = "WAF Regional"
+// AWSResourceWAFRegional defines WAF Regional resource
+const AWSResourceWAFRegional AWSResource = "WAF Regional"
 
-// WorkSpaces defines WorkSpaces resource
-const WorkSpaces AWSResource = "WorkSpaces"
+// AWSResourceWorkSpaces defines WorkSpaces resource
+const AWSResourceWorkSpaces AWSResource = "WorkSpaces"
 
-// SharedPropertyTypes defines Shared Property Types resource
-const SharedPropertyTypes AWSResource = "Shared Property Types"
+// AWSResourceSharedPropertyTypes defines Shared Property Types resource
+const AWSResourceSharedPropertyTypes AWSResource = "Shared Property Types"

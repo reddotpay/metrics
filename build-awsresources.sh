@@ -15,6 +15,6 @@ echo "type AWSResource string"
 
 while IFS='' read -r line || [[ -n "$line" ]]; do
     s=$(echo $line | tr -d ' ' | tr -d '.' | tr -d '-')
-    echo "// $s defines $line resource"
-    echo "const $s AWSResource = \"$line\"" 
+    echo "// AWSResource$s defines $line resource"
+    echo "const AWSResource$s AWSResource = \"$line\"" 
 done < "$1"
