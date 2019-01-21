@@ -27,11 +27,13 @@ func TestMetrics_New(t *testing.T) {
 }
 
 func TestMetrics_SetAWSResources(t *testing.T) {
-	m.SetAWSResources("API Gateway")
+	m.SetAWSResources("API Gateway", "Lambda")
 	assert := assert.New(t)
 	_, ok := m.Value["API Gateway"]
 	assert.True(ok)
 	_, ok = m.Value["Lambda"]
+	assert.True(ok)
+	_, ok = m.Value["DynamoDB"]
 	assert.False(ok)
 }
 
