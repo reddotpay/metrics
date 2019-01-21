@@ -28,12 +28,13 @@ type Metrics struct {
 }
 
 // New initialises a new `Metrics`
-func New(method, path, traceID, apiKey string) Metrics {
+func New(appname, method, path, traceID, apiKey string) Metrics {
 	md5 := md5.New()
 	md5.Write([]byte(apiKey))
 	return Metrics{
 		start: time.Now(),
 		Value: map[string]string{
+			"appname": appname,
 			"method":  method,
 			"path":    path,
 			"traceID": traceID,
