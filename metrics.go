@@ -67,7 +67,7 @@ func (metrics Metrics) Send(ctx context.Context) error {
 	// Set duration in milliseconds
 	metrics.Value["duration"] = strconv.FormatInt(time.Since(metrics.start).Nanoseconds()/1000000, 10)
 
-	b, _ := json.Marshal(metrics)
+	b, _ := json.Marshal(metrics.Value)
 	_, err := Firehose.PutRecordWithContext(ctx, &firehose.PutRecordInput{
 		DeliveryStreamName: aws.String(FirehoseStreamName),
 		Record: &firehose.Record{
