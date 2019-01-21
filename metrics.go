@@ -6,7 +6,6 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"strconv"
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -26,8 +25,8 @@ var (
 type Metrics struct {
 	start time.Time
 
-	dynamodbRead  int
-	dynamodbWrite int
+	dynamodbRead  float64
+	dynamodbWrite float64
 
 	Value map[string]string
 }
@@ -59,15 +58,15 @@ func (metrics Metrics) SetAWSResources(resources ...AWSResource) {
 }
 
 // SetDynamoDBReadUsage sets dynamodb read usage
-func (metrics *Metrics) SetDynamoDBReadUsage() {
-	metrics.dynamodbRead = metrics.dynamodbRead + 1
-	metrics.Value["dynamodbRead"] = strconv.Itoa(metrics.dynamodbRead)
+func (metrics *Metrics) SetDynamoDBReadUsage(usage float64) {
+	metrics.dynamodbRead = metrics.dynamodbRead + usage
+	metrics.Value["dynamodbRead"] = fmt.Sprintf("%.2f", metrics.dynamodbRead)
 }
 
 // SetDynamoDBWriteUsage sets dynamodb write usage
-func (metrics *Metrics) SetDynamoDBWriteUsage() {
-	metrics.dynamodbWrite = metrics.dynamodbWrite + 1
-	metrics.Value["dynamodbWrite"] = strconv.Itoa(metrics.dynamodbWrite)
+func (metrics *Metrics) SetDynamoDBWriteUsage(usage float64) {
+	metrics.dynamodbWrite = metrics.dynamodbWrite + usage
+	metrics.Value["dynamodbWrite"] = fmt.Sprintf("%.2f", metrics.dynamodbWrite)
 }
 
 // NewClient creates a new firehose client with default config

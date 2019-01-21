@@ -36,16 +36,15 @@ func TestMetrics_SetAWSResources(t *testing.T) {
 }
 
 func TestMetrics_SetDynamoDBReadUsage(t *testing.T) {
-	m.SetDynamoDBReadUsage()
+	m.SetDynamoDBReadUsage(1)
 	assert := assert.New(t)
-	assert.Equal("1", m.Value["dynamodbRead"])
+	assert.Equal("1.00", m.Value["dynamodbRead"])
 }
 
 func TestMetrics_SetDynamoDBWriteUsage(t *testing.T) {
-	m.SetDynamoDBWriteUsage()
-	m.SetDynamoDBWriteUsage()
+	m.SetDynamoDBWriteUsage(2)
 	assert := assert.New(t)
-	assert.Equal("2", m.Value["dynamodbWrite"])
+	assert.Equal("2.00", m.Value["dynamodbWrite"])
 }
 
 func TestMetrics_NewClient(t *testing.T) {
