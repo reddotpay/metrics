@@ -6,12 +6,12 @@ set -ex
 
 PKG_LIST=$(go list ./... | grep -v /vendor/)
 
+printf "" > README.md
+
 # Create a coverage file for each package
-for package in ${PKG_LIST}; do
-    if [ "${package}" != "git.reddotpay.com/core-service/$1" ]; then
-        godocdown "${package}" >> README.md;
-    fi
-done ;
+if [ "${package}" != "git.reddotpay.com/core-service/$1" ]; then
+    godocdown "${package}" >> README.md;
+fi
 
 printf "\n\n" >> README.md
 printf '```' >> README.md
