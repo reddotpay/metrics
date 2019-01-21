@@ -1,0 +1,71 @@
+Alexa
+Amazon MQ
+API Gateway
+Application Auto Scaling
+AppStream 2.0
+AppSync
+Athena
+Auto Scaling
+AWS Batch
+Budgets
+Certificate Manager
+AWS Cloud9
+CloudFormation
+CloudFront
+AWS Cloud Map
+CloudTrail
+CloudWatch
+CodeBuild
+CodeCommit
+CodeDeploy
+CodePipeline
+Amazon Cognito
+AWS Config
+Data Pipeline
+DAX
+Directory Service
+Data Lifecycle Manager
+DMS
+DocumentDB
+DynamoDB
+EC2
+ECR
+ECS
+EFS
+EKS
+ElastiCache
+Elasticsearch
+Elastic Beanstalk
+Elastic Load Balancing
+Elastic Load Balancing V2
+EMR
+Amazon GameLift
+Glue
+GuardDuty
+IAM
+Amazon Inspector
+AWS IoT
+AWS IoT 1-Click
+AWS IoT Analytics
+Kinesis
+KMS
+Lambda
+Neptune
+OpsWorks
+RDS
+Amazon Redshift
+Route 53
+S3
+SageMaker
+Secrets Manager
+Service Catalog
+SES
+SimpleDB
+SNS
+SQS
+Step Functions
+Systems Manager
+WAF
+WAF Regional
+WorkSpaces
+Shared Property Types
