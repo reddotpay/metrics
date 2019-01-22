@@ -14,7 +14,7 @@ import (
 var m metrics.Metrics
 
 func init() {
-	m = metrics.New("appname", "method", "path", "traceID", "apiKey")
+	m = metrics.New("appname", "method", "path", "Root=1-5c4671a9-2a7f8aa8bb44bba86ddc3550;Parent=a10d99b18d2691df;Sampled=1", "apiKey")
 }
 
 func TestMetrics_New(t *testing.T) {
@@ -22,7 +22,7 @@ func TestMetrics_New(t *testing.T) {
 	assert.Equal("appname", m.Value["appname"])
 	assert.Equal("method", m.Value["method"])
 	assert.Equal("path", m.Value["path"])
-	assert.Equal("traceID", m.Value["traceID"])
+	assert.Equal("Root=1-5c4671a9-2a7f8aa8bb44bba86ddc3550", m.Value["traceID"])
 	assert.Equal("c9ff119073ea2567730fb42e3a4fe805", m.Value["apiKey"])
 }
 

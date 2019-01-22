@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"regexp"
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -35,6 +36,9 @@ type Metrics struct {
 func New(appname, method, path, traceID, apiKey string) Metrics {
 	md5 := md5.New()
 	md5.Write([]byte(apiKey))
+
+	re := regexp.MustCompile(`.*(Root=\w+-\w+-\w+).*`)
+	match := re.FindStringSubmatch(traceID)
 	return Metrics{
 		start:         time.Now(),
 		dynamodbRead:  0,
@@ -43,7 +47,7 @@ func New(appname, method, path, traceID, apiKey string) Metrics {
 			"appname": appname,
 			"method":  method,
 			"path":    path,
-			"traceID": traceID,
+			"traceID": match[1],
 			"apiKey":  hex.EncodeToString(md5.Sum(nil)),
 		},
 	}
