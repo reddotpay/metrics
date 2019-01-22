@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"regexp"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -80,8 +81,8 @@ func (metrics *Metrics) SetDynamoDBWriteUsage(usage float64) {
 }
 
 // SetDuration sets lambda duration
-func (metrics *Metrics) SetDuration(duration float64) {
-	metrics.Value["duration"] = fmt.Sprintf("%.2f", duration)
+func (metrics *Metrics) SetDuration(start time.Time) {
+	metrics.Value["duration"] = fmt.Sprintf("%.2f", float64(time.Since(start).Nanoseconds())/1000000)
 }
 
 // NewClient creates a new firehose client with default config

@@ -63,7 +63,7 @@ SetAWSResources sets aws resource
 #### func (*Metrics) SetDuration
 
 ```go
-func (metrics *Metrics) SetDuration(duration float64)
+func (metrics *Metrics) SetDuration(start time.Time)
 ```
 SetDuration sets lambda duration
 
@@ -86,12 +86,12 @@ SetDynamoDBWriteUsage sets dynamodb write usage
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Go                               3             30             11            209
+Go                               3             30             11            211
 Plain Text                       1              0              0             71
 Markdown                         1             25              0             60
 BASH                             4             17             12             33
 Makefile                         1             15              0             32
 -------------------------------------------------------------------------------
-TOTAL                           10             87             23            405
+TOTAL                           10             87             23            407
 -------------------------------------------------------------------------------
 ```

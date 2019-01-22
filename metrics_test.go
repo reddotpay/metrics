@@ -2,6 +2,7 @@ package metrics_test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/firehose"
@@ -49,9 +50,9 @@ func TestMetrics_SetDynamoDBWriteUsage(t *testing.T) {
 }
 
 func TestMetrics_SetDuration(t *testing.T) {
-	m.SetDuration(100)
+	m.SetDuration(time.Now().Add(-1 * time.Second))
 	assert := assert.New(t)
-	assert.Equal("100.00", m.Value["duration"])
+	assert.Equal("1000.00", m.Value["duration"])
 }
 
 func TestMetrics_NewClient(t *testing.T) {
