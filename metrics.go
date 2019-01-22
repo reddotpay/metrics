@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"regexp"
-	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -24,8 +23,6 @@ var (
 
 // Metrics defines metrics to send to firehose
 type Metrics struct {
-	start time.Time
-
 	dynamodbRead  float64
 	dynamodbWrite float64
 
@@ -40,7 +37,6 @@ func New(appname, method, path, traceID, apiKey string) Metrics {
 	re := regexp.MustCompile(`.*(Root=\w+-\w+-\w+).*`)
 	match := re.FindStringSubmatch(traceID)
 	return Metrics{
-		start:         time.Now(),
 		dynamodbRead:  0,
 		dynamodbWrite: 0,
 		Value: map[string]string{
@@ -83,6 +79,11 @@ func (metrics *Metrics) SetDynamoDBWriteUsage(usage float64) {
 	metrics.Value["dynamodbWrite"] = fmt.Sprintf("%.2f", metrics.dynamodbWrite)
 }
 
+// SetDuration sets lambda duration
+func (metrics *Metrics) SetDuration(duration float64) {
+	metrics.Value["duration"] = fmt.Sprintf("%.2f", duration)
+}
+
 // NewClient creates a new firehose client with default config
 func NewClient() *firehose.Firehose {
 	return firehose.New(session.New(&aws.Config{}))
@@ -95,9 +96,6 @@ func NewClientWithConfig(config aws.Config) *firehose.Firehose {
 
 // Send sends `Metrics` to firehose stream
 func (metrics *Metrics) Send(ctx context.Context) error {
-	// Set duration in milliseconds
-	metrics.Value["duration"] = fmt.Sprintf("%.2f", float64(time.Since(metrics.start).Nanoseconds())/1000000)
-
 	b, _ := json.Marshal(metrics.Value)
 	_, err := Firehose.PutRecordWithContext(ctx, &firehose.PutRecordInput{
 		DeliveryStreamName: aws.String(FirehoseStreamName),

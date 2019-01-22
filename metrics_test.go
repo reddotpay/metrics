@@ -1,7 +1,6 @@
 package metrics_test
 
 import (
-	"context"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -49,6 +48,12 @@ func TestMetrics_SetDynamoDBWriteUsage(t *testing.T) {
 	assert.Equal("2.00", m.Value["dynamodbWrite"])
 }
 
+func TestMetrics_SetDuration(t *testing.T) {
+	m.SetDuration(100)
+	assert := assert.New(t)
+	assert.Equal("100.00", m.Value["duration"])
+}
+
 func TestMetrics_NewClient(t *testing.T) {
 	client := metrics.NewClient()
 	assert := assert.New(t)
@@ -59,11 +64,4 @@ func TestMetrics_NewClientWithConfig(t *testing.T) {
 	client := metrics.NewClientWithConfig(aws.Config{})
 	assert := assert.New(t)
 	assert.IsType(&firehose.Firehose{}, client)
-}
-
-func TestMetrics_Send(t *testing.T) {
-	metrics.Firehose = metrics.NewClient()
-	assert := assert.New(t)
-	m.Send(context.Background())
-	assert.NotEmpty(m.Value["duration"])
 }
