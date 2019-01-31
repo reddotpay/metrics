@@ -85,6 +85,11 @@ func (metrics *Metrics) SetDuration(start time.Time) {
 	metrics.Value["duration"] = fmt.Sprintf("%.2f", float64(time.Since(start).Nanoseconds())/1000000)
 }
 
+// SetLambdaMemorySize sets lambda duration
+func (metrics *Metrics) SetLambdaMemorySize(memory string) {
+	metrics.Value["memory"] = memory
+}
+
 // NewClient creates a new firehose client with default config
 func NewClient() *firehose.Firehose {
 	return firehose.New(session.New(&aws.Config{}))

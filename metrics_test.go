@@ -55,6 +55,12 @@ func TestMetrics_SetDuration(t *testing.T) {
 	assert.Equal("1000.00", m.Value["duration"])
 }
 
+func TestMetrics_SetLambdaMemorySize(t *testing.T) {
+	m.SetLambdaMemorySize("128")
+	assert := assert.New(t)
+	assert.Equal("128", m.Value["memory"])
+}
+
 func TestMetrics_NewClient(t *testing.T) {
 	client := metrics.NewClient()
 	assert := assert.New(t)

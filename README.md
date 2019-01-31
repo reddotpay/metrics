@@ -81,17 +81,24 @@ func (metrics *Metrics) SetDynamoDBWriteUsage(usage float64)
 ```
 SetDynamoDBWriteUsage sets dynamodb write usage
 
+#### func (*Metrics) SetLambdaMemorySize
+
+```go
+func (metrics *Metrics) SetLambdaMemorySize(memory string)
+```
+SetLambdaMemorySize sets lambda duration
+
 
 ```
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Go                               3             30             11            211
+Go                               3             32             12            219
 Plain Text                       1              0              0             71
-Markdown                         1             25              0             60
+Markdown                         1             27              0             65
 BASH                             4             17             12             33
 Makefile                         1             15              0             32
 -------------------------------------------------------------------------------
-TOTAL                           10             87             23            407
+TOTAL                           10             91             24            420
 -------------------------------------------------------------------------------
 ```
