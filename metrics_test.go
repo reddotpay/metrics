@@ -39,19 +39,19 @@ func TestMetrics_SetAWSResources(t *testing.T) {
 func TestMetrics_SetDynamoDBReadUsage(t *testing.T) {
 	m.SetDynamoDBReadUsage(1)
 	assert := assert.New(t)
-	assert.Equal("1.00", m.Value["dynamodb.read.read"])
+	assert.Equal(1.0, m.Value["dynamodb.read.read"])
 }
 
 func TestMetrics_SetDynamoDBWriteUsage(t *testing.T) {
-	m.SetDynamoDBWriteUsage(2)
+	m.SetDynamoDBWriteUsage(0.5)
 	assert := assert.New(t)
-	assert.Equal("2.00", m.Value["dynamodb.write.write"])
+	assert.Equal(0.5, m.Value["dynamodb.write.write"])
 }
 
 func TestMetrics_SetDuration(t *testing.T) {
 	m.SetDuration(time.Now().Add(-1 * time.Second))
 	assert := assert.New(t)
-	assert.Equal("1000.00", m.Value["lambda.duration.ms"])
+	assert.Equal(1000.00, m.Value["lambda.duration.ms"])
 }
 
 func TestMetrics_SetLambdaMemorySize(t *testing.T) {

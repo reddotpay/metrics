@@ -77,18 +77,20 @@ func (metrics *Metrics) SetAWSResources(resources ...string) {
 // SetDynamoDBReadUsage sets dynamodb read usage
 func (metrics *Metrics) SetDynamoDBReadUsage(usage float64) {
 	metrics.dynamodbRead = metrics.dynamodbRead + usage
-	metrics.Value["dynamodb.read.read"] = fmt.Sprintf("%.2f", metrics.dynamodbRead)
+	metrics.Value["dynamodb.read.read"] = metrics.dynamodbRead
 }
 
 // SetDynamoDBWriteUsage sets dynamodb write usage
 func (metrics *Metrics) SetDynamoDBWriteUsage(usage float64) {
 	metrics.dynamodbWrite = metrics.dynamodbWrite + usage
-	metrics.Value["dynamodb.write.write"] = fmt.Sprintf("%.2f", metrics.dynamodbWrite)
+	metrics.Value["dynamodb.write.write"] = metrics.dynamodbWrite
 }
 
 // SetDuration sets lambda duration
 func (metrics *Metrics) SetDuration(start time.Time) {
-	metrics.Value["lambda.duration.ms"] = fmt.Sprintf("%.2f", float64(time.Since(start).Nanoseconds())/1000000)
+	s := fmt.Sprintf("%.2f", float64(time.Since(start).Nanoseconds())/1000000)
+	f, _ := strconv.ParseFloat(s, 64)
+	metrics.Value["lambda.duration.ms"] = f
 }
 
 // SetLambdaMemorySize sets lambda duration
