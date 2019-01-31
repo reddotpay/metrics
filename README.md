@@ -8,7 +8,7 @@
 ```go
 var (
 	// Firehose contains firehose client
-	Firehose *firehose.Firehose
+	Firehose firehoseiface.FirehoseAPI
 
 	// FirehoseStreamName contains firehose stream name
 	FirehoseStreamName string
@@ -33,7 +33,8 @@ NewClientWithConfig creates a new firehose client with given config
 
 ```go
 type Metrics struct {
-	Value map[string]string
+	Value     map[string]interface{}
+	Resources []string
 }
 ```
 
@@ -42,7 +43,7 @@ Metrics defines metrics to send to firehose
 #### func  New
 
 ```go
-func New(appname, method, path, traceID, apiKey string) Metrics
+func New(appname, method, path, requestID, traceID, apiKey string) Metrics
 ```
 New initialises a new `Metrics`
 
@@ -53,10 +54,10 @@ func (metrics *Metrics) Send(ctx context.Context) error
 ```
 Send sends `Metrics` to firehose stream
 
-#### func (Metrics) SetAWSResources
+#### func (*Metrics) SetAWSResources
 
 ```go
-func (metrics Metrics) SetAWSResources(resources ...string)
+func (metrics *Metrics) SetAWSResources(resources ...string)
 ```
 SetAWSResources sets aws resource
 
@@ -93,12 +94,12 @@ SetLambdaMemorySize sets lambda duration
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Go                               3             32             12            219
+Go                               3             38             13            286
 Plain Text                       1              0              0             71
-Markdown                         1             27              0             65
+Markdown                         1             27              0             66
 BASH                             4             17             12             33
 Makefile                         1             15              0             32
 -------------------------------------------------------------------------------
-TOTAL                           10             91             24            420
+TOTAL                           10             97             25            488
 -------------------------------------------------------------------------------
 ```

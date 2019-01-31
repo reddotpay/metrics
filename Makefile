@@ -1,5 +1,5 @@
 PROJECT_NAME := "metrics"
-PKG := "githubcom/reddotpay/$(PROJECT_NAME)"
+PKG := "github.com/reddotpay/$(PROJECT_NAME)"
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
 
