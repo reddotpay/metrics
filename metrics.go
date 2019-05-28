@@ -35,13 +35,11 @@ type Metrics struct {
 }
 
 // New initialises a new `Metrics`
-func New(appname, method, path, requestID, traceID, apiKey string) Metrics {
+func New(appname, method, path, requestID, traceID, apiKey string) (metrics Metrics) {
 	md5 := md5.New()
 	md5.Write([]byte(apiKey))
 
-	re := regexp.MustCompile(`.*(Root=\w+-\w+-\w+).*`)
-	match := re.FindStringSubmatch(traceID)
-	return Metrics{
+	metrics = Metrics{
 		dynamodbRead:  0,
 		dynamodbWrite: 0,
 		Value: map[string]interface{}{
@@ -49,11 +47,18 @@ func New(appname, method, path, requestID, traceID, apiKey string) Metrics {
 			"method":     method,
 			"path":       path,
 			"request_id": requestID,
-			"trace_id":   match[1],
 			"api_key":    hex.EncodeToString(md5.Sum(nil)),
 		},
 		Resources: []string{},
 	}
+
+	re := regexp.MustCompile(`.*(Root=\w+-\w+-\w+).*`)
+	match := re.FindStringSubmatch(traceID)
+	if len(match) >= 2 && match[1] != "" {
+		metrics.Value["trace_id"] = match[1]
+	}
+
+	return
 }
 
 // SetAWSResources sets aws resource

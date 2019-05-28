@@ -43,7 +43,7 @@ Metrics defines metrics to send to firehose
 #### func  New
 
 ```go
-func New(appname, method, path, requestID, traceID, apiKey string) Metrics
+func New(appname, method, path, requestID, traceID, apiKey string) (metrics Metrics)
 ```
 New initialises a new `Metrics`
 
@@ -94,12 +94,12 @@ SetLambdaMemorySize sets lambda duration
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Go                               3             38             13            288
+Go                               3             40             13            291
 Plain Text                       1              0              0             71
 Markdown                         1             27              0             66
 BASH                             4             17             12             33
 Makefile                         1             15              0             32
 -------------------------------------------------------------------------------
-TOTAL                           10             97             25            490
+TOTAL                           10             99             25            493
 -------------------------------------------------------------------------------
 ```
