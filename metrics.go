@@ -35,9 +35,9 @@ type Metrics struct {
 }
 
 // New initialises a new `Metrics`
-func New(appname, method, path, requestID, traceID, apiKey string) (metrics Metrics) {
+func New(appname, method, path, requestID, traceID, clientID string) (metrics Metrics) {
 	md5 := md5.New()
-	md5.Write([]byte(apiKey))
+	md5.Write([]byte(clientID))
 
 	metrics = Metrics{
 		dynamodbRead:  0,
@@ -47,7 +47,7 @@ func New(appname, method, path, requestID, traceID, apiKey string) (metrics Metr
 			"method":     method,
 			"path":       path,
 			"request_id": requestID,
-			"api_key":    hex.EncodeToString(md5.Sum(nil)),
+			"client_id":  hex.EncodeToString(md5.Sum(nil)),
 		},
 		Resources: []string{},
 	}
